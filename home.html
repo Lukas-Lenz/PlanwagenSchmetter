@@ -1,0 +1,850 @@
+<!doctype html >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de"
+      class="">
+<head>
+    <meta charset="utf-8">    
+
+
+<script type="text/javascript">
+    window._currentDevice = 'desktop';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'http://www.planwagenfahrten-schmetter.de/',
+        AccountUUID: '7319fe6d94d74cffbc6ca65fd98fa0be',
+        SystemID: '1AND1_EU_PROD',
+        SiteAlias: 'c2f6d3e144564f0b97111210a9cc10a9',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Mon Mar 24 19:21:48 UTC 2025',
+        ExternalUid: '342a4403-b181-4419-a905-9599dd2db077',
+        IsSiteMultilingual: false,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: '0ec98bfe7d6744db94dc59e6c275d3a5',
+        InitialPageId: '702827344',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: '8f8c54fc3f3348a8bfecb485a934e952',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '53260',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'de',
+        currentLocale: 'de',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: 4,
+            NavbarLiveHomePage: 'http://www.planwagenfahrten-schmetter.de/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: true,
+        planID: '2831',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'de',
+        hamburgerMigration: null,
+        isFlexSite : false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 9;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+
+
+
+
+<!-- Inject secured cdn script -->
+
+
+<!-- ========= Meta Tags ========= -->
+<!-- PWA settings -->
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+
+
+<meta id="view" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+<link rel="stylesheet" type="text/css" href="home.css">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.planwagenfahrten-schmetter.de/">
+<script type="application/ld+json">
+    {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Planwagenfahrten Schmetter Geldern",
+        "url" : "https://www.planwagenfahrten-schmetter.de/"
+    }
+</script>
+  <title>
+    Schmetter Planwagenfahrten Geldern am Niederrhein
+  </title>
+  <meta name="keywords" content="Planwagen mieten in Geldern, Planwagen mieten in Kleve und Umgebung, Planwagentour ,Planwagenfahrt, Planwagen Schmetter , Planwagen mieten für JGA, JGA Beispiele, Shuttle Service im Kreis Kleve, Klassenausflug, Geburtstagsevent, Geburtstagsgeschenk, Kegelclub, Tour,"/>
+  <meta name="description" content="Bei uns können Sie Planwagenfahrten Geldern für Kindergeburtstage, Junggesellenabschiede, Firmenevents, Saisonabschluss oder ähnliche Anlässe buchen"/>
+
+  <meta name="google-site-verification" content="fIsD04KlAOxhEGFObNB2pe-ITrRf2HE4BT7TZCH3wek"/>
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Schmetter Planwagenfahrten Geldern am Niederrhein"/>
+  <meta name="twitter:description" content="Bei uns können Sie Planwagenfahrten Geldern für Kindergeburtstage, Junggesellenabschiede, Firmenevents, Saisonabschluss oder ähnliche Anlässe buchen"/>
+  <meta property="og:description" content="Bei uns können Sie Planwagenfahrten Geldern für Kindergeburtstage, Junggesellenabschiede, Firmenevents, Saisonabschluss oder ähnliche Anlässe buchen"/>
+  <meta property="og:title" content="Schmetter Planwagenfahrten Geldern am Niederrhein"/>
+
+
+<!-- SYS- MUFORDFfRVVfUFJPRA== -->
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="dmRoot" data-page-alias="home"  class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite dmLargeBody "
+      style="padding:0;margin:0;"
+      
+    >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========= Site Content ========= -->
+<div id="dm" class='dmwr'>
+    
+    <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+         <div dmwrapped="true" id="1708693535" class="dm-home-page" desktop-global-classes="header-over-content" tablet-global-classes="header-over-content" mobile-global-classes="header-over-content"> <div dmtemplateid="skinnyHeaderLayout" class="skinnyHeaderLayout dm-bfs dm-layout-home hasStickyHeader inMiniHeaderMode rows-1200 header-over-content dmPageBody d-page-1282683274 inputs-css-clean dmFreeHeader" id="dm-outer-wrapper" data-page-class="1282683274" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div class="dmHeaderContainer fHeader d-header-wrapper"> <div id="hcontainer" class="dmHeader p_hfcontainer u_hcontainer" freeheader="true" layout="78f5c343822e4eb3aac27f4ad5d13812===header" preserve-sticky-header="true" has-shadow="true" data-scrollable-target="body" data-scrollable-target-threshold="1" data-scroll-responder-id="1" logo-size-target="83%"> <div dm:templateorder="75" class="dmHeaderResp dmHeaderStack noSwitch" id="1451032289"> <div class="u_1247074301 dmRespRow dmDefaultListContentRow fullBleedChanged fullBleedMode" style="text-align:center" id="1247074301"> <div class="dmRespColsWrapper" id="1760007454"> <div class="u_1405280612 dmRespCol small-12 medium-12 large-12" id="1405280612"> <nav class="u_1869419417 effect-bottom2 main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="horizontal_nav_layout_1" layout-sub="submenu_horizontal_1" data-show-vertical-sub-items="HOVER" id="1869419417" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-nav-structure="HORIZONTAL" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/" class="unifiednav__item  dmNavItemSelected  dmUDNavigationItem_00  " target="" data-target-page-alias="" data-auto="selected-page"> <span class="nav-item-text " data-link-text="
+         Home
+        " data-auto="page-text-style">Home<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/gallery" class="unifiednav__item  dmUDNavigationItem_01  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Bildergalerie
+        " data-auto="page-text-style">Bildergalerie<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/contact" class="unifiednav__item  dmUDNavigationItem_03  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Kontakt
+        " data-auto="page-text-style">Kontakt<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="stickyHeaderSpacer" id="stickyHeaderSpacer" data-new="true"></div> 
+ <div id="desktopBodyBox"> <div id="iscrollBody"> <div id="site_content"> <div class="dmRespRow dmRespRowStable dmRespRowNoPadding dmPageTitleRow dmInnerBarRow"> <div class="dmRespColsWrapper"> <div class="large-12 dmRespCol"> <div id="innerBar" class="innerBar lineInnerBar dmDisplay_None"> <div class="titleLine display_None"><hr/></div> 
+<!-- Page title is hidden in css for new responsive sites. It is left here only so we don't break old sites. Don't copy it to new layouts --> <div id="pageTitleText"></div> 
+ <div class="titleLine display_None"><hr/></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div dmwrapped="true" id="dmFirstContainer" class="dmBody u_dmStyle_template_home dm-home-page" desktop-global-classes="header-over-content" tablet-global-classes="header-over-content" mobile-global-classes="header-over-content"> <div id="allWrapper" class="allWrapper"> <div id="dm_content" class="dmContent" role="main"> <div dm:templateorder="117" class="dmFullRowRespTmpl mainBorder dmRespRowsWrapper" id="1282683274"> <section class="u_1475673443 dmRespRow dmHomeSection1 dmHomeSectionNoBtn dmSectionNoParallax hasBackgroundOverlay" id="1475673443" data-gallery-bg="eyJzbGlkZXMiOlsiaHR0cHM6Ly9sZS1jZG4ud2Vic2l0ZS1lZGl0b3IubmV0L2MyZjZkM2UxNDQ1NjRmMGI5NzExMTIxMGE5Y2MxMGE5L2RtczNyZXAvbXVsdGkvb3B0LzEwMDAwODI3NjUtMTkyMHcuanBnIl0sInNwZWVkIjoiNyJ9" data-anim-extended="eyJtb2JpbGUiOnsidHJpZ2dlciI6ImVudHJhbmNlIiwiZHVyYXRpb24iOjEsImRlbGF5IjowLCJpbnRlbnNpdHkiOjF9fQ=="> <div class="dmRespColsWrapper" id="1801266896"> <div class="u_1306856888 dmRespCol large-12 medium-12 small-12 hide-for-large empty-column" id="1306856888"></div> 
+</div> 
+</section> 
+ <div class="dmRespRow u_1919911749" style="text-align: center;" id="1919911749"> <div class="dmRespColsWrapper" id="1285796032"> <div class="dmRespCol small-12 medium-6 large-6" id="1357484550"> <div class="u_1406000988 defaultH3 dmNewParagraph" id="1406000988" data-version="5" style="text-align: start;"> <h3><span style="display: initial;">Was machen wir ?</span></h3> 
+</div> <div class="u_1063262541 dmFullHomeSectionTxt dmNewParagraph dmBlockElement" id="1063262541" style="display: block; transition: none;" data-version="5"><p><span style="display: initial;">Wir bieten unvergessliche Planwagentouren am Niederrhein an.</span></p><p><span style="display: initial;"><br/></span></p></div></div> 
+ <div class="dmRespCol small-12 medium-6 large-6" id="1326666275"> <div data-element-type="image" class="u_1220444020 imageWidget dmFullHomeSectionImg dmRightSideImg" id="1220444020"><img src="https://le-cdn.website-editor.net/c2f6d3e144564f0b97111210a9cc10a9/dms3rep/multi/opt/Planwagen-410w.jpg" id="1377464629" class="" data-dm-image-path="https://cdn.website-editor.net/c2f6d3e144564f0b97111210a9cc10a9/dms3rep/multi/Planwagen.jpg" data-hover-effect="zoomout" width="1920" height="1753" onerror="handleImageLoadError(this)"/></div> 
+</div> 
+</div> 
+</div> 
+ <section class="u_1615367861 dmRespRow dmSectionParallex dmHomeSection2Parallex" id="1615367861"> <div class="dmRespColsWrapper" id="1197711830"> <div class="dmRespCol large-12 medium-12 small-12" id="1131861328"> <div data-element-type="spacer" class="u_1788063718 dmSpacer" id="1788063718"></div> 
+</div> 
+</div> 
+</section> 
+ <div class="u_1415196892 dmRespRow" style="text-align: center;" id="1415196892"> <div class="dmRespColsWrapper" id="1351478601"> <div class="u_1410978884 dmRespCol small-12 large-4 medium-4" id="1410978884"> <div class="u_1966990112 dmNewParagraph" id="1966990112" style="transition: opacity 1s ease-in-out; display: block;" data-element-type="paragraph" data-version="5"> <h3 class="text-align-left"><span style="display: initial;">Unsere Leistungen</span></h3> 
+</div> <div class="u_1376816149 dmDividerWrapper clearfix" data-element-type="dDividerId" data-layout="divider-style-1" data-widget-version="2" id="1376816149" layout="divider-style-3"><hr class="dmDivider" style="border-width:2px; border-top-style:solid; color:grey;" id="1882606529"/></div> 
+</div> 
+ <div class="u_1289579064 dmRespCol small-12 large-4 medium-4" id="1289579064"> <div class="u_1798559222 graphicWidget" data-widget-type="graphic" id="1798559222" data-element-type="graphic"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1525095739" class="svg u_1525095739" data-icon-custom="true"> <g> <path d="m39.105 21.645c0.32031 0.070313 0.64453 0.070313 0.96484 0.070313h0.28516 0.32031c2.5703 0.070312 6.1055-1.1445 10.285-6.1055 0 0-2.8945-4.0703-6.0352-6.5352-0.21484-0.17969-0.39453-0.32031-0.60547-0.46484-0.070312-0.035156-0.10547-0.10547-0.17969-0.14453-0.070313-0.035156-0.14453-0.070313-0.25-0.070313-0.64453-0.35547-1.3203-0.64453-2.0703-0.78516-3.8555-0.75-7.6055 1.7852-8.3203 5.6445-0.71484 3.8555 1.7852 7.6055 5.6445 8.3203z"></path> 
+ <path d="m56.93 67.82 3.8945-15c0.28516-1.1445 0.21484-2.1445-0.070313-3l-1.9297-18.855c5.3555 0.28516 10.855 0.57031 10.855 0.57031 1.6055 0.17969 3.2148-0.75 3.7852-2.3203l6.3945-16.93c1.2852-3.3945-3.7148-5.6055-5.3555-2.3555l-6.9648 13.645-16.965-0.89453c-0.53516 0-1.0703 0.070312-1.5352 0.25-0.85547 0.035156-1.6797 0.32031-2.3945 0.92969l-13.465 12-10.5-1.1445c-3.5-0.42969-4.5352 4.8203-1.1055 5.75l12.18 3.3555c1.0703 0.28516 2.25 0.035157 3.1445-0.75l0.21484-0.17969 6.0703-5.3945 2 9.1797-15.105 7.8203-0.35547 0.17969c-1.25 0.64453-2.1055 1.9648-2.0703 3.5l0.35547 22.105c0 1.8203 1.5 3.3203 3.3203 3.3945 1.8945 0.070313 3.5-1.4297 3.5703-3.3203l0.71484-19.25 13.75-4.8203-2.0352 11-0.070313 0.46484c-0.17969 0.92969 0 1.9297 0.5 2.7852l12.465 20.465c0.82031 1.3945 2.5703 1.9648 4.1055 1.2852 1.6445-0.71484 2.3555-2.6445 1.6445-4.2852l-9-20.07z"></path> 
+ <path d="m92.285 68.215v-23.32h-19.965v19.25c-0.64453-0.17969-1.3203-0.28516-2.0352-0.28516-3.1055 0-5.6055 1.8945-5.6055 4.2148 0 2.3203 2.5 4.2148 5.6055 4.2148 3.1055 0 5.6055-1.8945 5.6055-4.2148 0-0.10547 0-0.21484-0.035156-0.35547v-17h12.93v13.895c-0.64453-0.17969-1.3203-0.28516-2.0352-0.28516-3.1055 0-5.6055 1.8945-5.6055 4.2148 0 2.3203 2.5 4.2148 5.6055 4.2148s5.6055-1.8945 5.6055-4.2148c0-0.10547 0-0.21484-0.035157-0.32031z"></path> 
+ <path d="m18.5 14h6.8945v-6.2148h-10.645v12.895c-0.53516-0.14453-1.0703-0.21484-1.6445-0.21484-3 0-5.4297 1.8203-5.4297 4.1055 0 2.2852 2.4297 4.1055 5.4297 4.1055s5.4297-1.8203 5.4297-4.1055c0-0.10547 0-0.25-0.035156-0.35547z"></path> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1194797344 dmNewParagraph" id="1194797344" data-element-type="paragraph" data-version="5"> <h4><span style="display: initial;">Planwagentouren</span></h4> 
+</div> <div class="u_1397396844 dmNewParagraph" id="1397396844" style="transition: opacity 1s ease-in-out; display: block;" data-version="5"><p class="text-align-left"><span style="display: initial;">Ob Kindergeburtstag, Junggesellenabschied, Firmenevent, Saisonabschluss oder &auml;hnliche Anl&auml;sse -mit uns erleben Sie eine unvergessliche Fahrt.</span></p></div> <div class="u_1591522749 graphicWidget" data-widget-type="graphic" id="1591522749" data-element-type="graphic"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1114438275" class="svg u_1114438275" data-icon-custom="true"> <g> <path d="m32.73 48.922c-0.14062 0.24219-0.37109 0.42188-0.64453 0.49219-0.26953 0.066407-0.55469 0.027344-0.79297-0.11328l-9.2969-5.5781c-2.457-1.4727-5.5469-1.3711-7.8984 0.25391-2.3555 1.6289-3.543 4.4844-3.0312 7.3008l6.0664 33.359c0.63281 3.4688 3.6523 5.9922 7.1797 5.9883h51.375c3.5234 0 6.5469-2.5195 7.1797-5.9883l6.0664-33.363c0.50781-2.8164-0.67578-5.668-3.0312-7.2969-2.3555-1.625-5.4414-1.7266-7.8984-0.25391l-9.2969 5.5781c-0.23828 0.14062-0.52344 0.17969-0.79297 0.11328-0.27344-0.070312-0.50391-0.25-0.64453-0.49219l-10.938-19.145c-1.3008-2.2695-3.7148-3.668-6.332-3.668s-5.0312 1.3984-6.332 3.668zm16.367-16.039c0.51953-0.91797 1.2891-0.91797 1.8086 0l10.938 19.141h-0.003906c0.97656 1.7031 2.5938 2.9375 4.4922 3.4336 1.8945 0.49609 3.9102 0.20703 5.5938-0.79688l9.293-5.5781-0.003906-0.003906c0.35156-0.22266 0.80078-0.20703 1.1367 0.039063 0.33984 0.22656 0.50391 0.64062 0.41406 1.043l-6.0625 33.359v-0.003906c-0.089844 0.49609-0.52344 0.85938-1.0273 0.85938h-51.363c-0.50391 0-0.9375-0.36328-1.0273-0.85938l-6.0625-33.352c-0.09375-0.40234 0.074219-0.82031 0.41406-1.0469 0.33594-0.24609 0.78516-0.26172 1.1328-0.039063l9.293 5.5781v0.003906c1.6836 1.0078 3.6992 1.293 5.5977 0.79688 1.8945-0.49609 3.5117-1.7344 4.4844-3.4375z"></path> 
+ <path d="m55.207 16.668c0 6.9414-10.414 6.9414-10.414 0 0-6.9453 10.414-6.9453 10.414 0"></path> 
+ <path d="m15.625 37.5c0 6.9453-10.418 6.9453-10.418 0s10.418-6.9453 10.418 0"></path> 
+ <path d="m94.793 37.5c0 6.9453-10.418 6.9453-10.418 0s10.418-6.9453 10.418 0"></path> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1215029394 dmNewParagraph" id="1215029394" data-element-type="paragraph" data-version="5"> <h4><span style="display: initial;">Unsere Qualit&auml;t - Ihr Erlebnis</span></h4> 
+</div> <div class="u_1842393670 dmNewParagraph" id="1842393670" style="transition: opacity 1s ease-in-out; display: block;" data-version="5"><p class="text-align-left"><span style="display: initial;">Wir legen gro&szlig;en Wert drauf, dass alles passt.</span></p><p class="text-align-left"><span class="" style="display: initial;"><span style="display: initial;">Unsere Planwagen sind in einwandfreiem Zustand und bieten Ihnen einen komfortablen Platz.</span> 
+</span></p><p class="text-align-left"><span style="display: initial;">Wir sorgen daf&uuml;r, dass jede Fahrt sicher und entspannt verl&auml;uft. Ihre Zufriedenheit liegt uns am Herzen- damit Ihre Tour bei uns unvergesslich wird.</span></p><p class="text-align-left"><br/></p></div></div> 
+ <div class="u_1018643470 dmRespCol small-12 large-4 medium-4" id="1018643470"> <div class="u_1049988349 graphicWidget" data-widget-type="graphic" id="1049988349" data-element-type="graphic"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" id="1105322155" class="svg u_1105322155" data-icon-name="li_award"> <g id="1336250635"> <path d="M50,23.5c-11,0-19.9,8.9-19.9,19.9S39,63.3,50,63.3s19.9-8.9,19.9-19.9S61,23.5,50,23.5z M50,60.9
+		c-9.6,0-17.5-7.8-17.5-17.5C32.5,33.8,40.4,26,50,26s17.5,7.8,17.5,17.5C67.5,53.1,59.6,60.9,50,60.9z" id="1830254703"></path> 
+ <path d="M88.3,73.7L75.6,61l2.2-1.3V51l4.4-7.6l-4.4-7.6v-8.7l-7.6-4.4l-4.4-7.6h-8.7l-7.6-4.4L42,15.2h-8.7l-4.4,7.6l-7.6,4.4v8.7
+		L17,43.4l4.4,7.6v8.7l2.7,1.6L11.7,73.7c-0.4,0.4-0.5,0.9-0.3,1.4s0.6,0.8,1.2,0.8h11.2v11.2c0,0.5,0.3,1,0.8,1.2
+		c0.2,0.1,0.3,0.1,0.5,0.1c0.3,0,0.6-0.1,0.9-0.4l16.2-16.2l7.5,4.3l7.6-4.4h0.6L74.2,88c0.2,0.2,0.6,0.4,0.9,0.4
+		c0.2,0,0.3,0,0.5-0.1c0.5-0.2,0.8-0.6,0.8-1.2V75.8h11.2c0.5,0,1-0.3,1.2-0.8C88.7,74.6,88.6,74.1,88.3,73.7z M25.1,73.4h-9.5
+		l10.7-10.7l2.6,1.5l4.4,7.6h5.4L26.3,84.1v-9.5C26.3,73.9,25.8,73.4,25.1,73.4z M56.5,69.2l-6.9,4l-6.9-4h-8l-4-6.9l-6.9-4v-8
+		l-4-6.9l4-6.9v-8l6.9-4l4-6.9h8l6.9-4l6.9,4h8l4,6.9l6.9,4v8l4,6.9l-4,6.9v8l-6.9,4l-4,6.9H56.5z M74.9,73.4
+		c-0.7,0-1.2,0.6-1.2,1.2v9.5L61.3,71.7h4.6l4.4-7.6l3.1-1.8l11,11L74.9,73.4L74.9,73.4z" id="1017241624"></path> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1066502058 dmNewParagraph" id="1066502058" data-element-type="paragraph" data-version="5"> <h4><span style="display: initial;">Zertifikate, Fahrerlaubnis und Genehmigung</span></h4> 
+</div> <div class="u_1808687055 dmNewParagraph" id="1808687055" style="transition: opacity 1s ease-in-out; display: block;" data-version="5"><p class="text-align-left"><span class="" style="display: initial;"><span style="display: initial;">- Touren sind ordnungsgem&auml;&szlig; genehmigt</span> 
+</span></p><p class="text-align-left"><span style="display: initial;">- Einhaltung aller gesetzlicher Vorschriften</span></p><p class="text-align-left"><span style="display: initial;">- Besitz der Personenversicherung</span></p><p class="text-align-left"><span style="display: initial;">- Fahrer besitzen erforderliche Fahrerlaubnisse</span></p><p class="text-align-left"><span style="display: initial;">- Fahrzeuge werden regelm&auml;&szlig;ig gewartet</span></p><p class="text-align-left"><span style="display: initial;">-Unterlagen k&ouml;nnen vor Fahrantritt gepr&uuml;ft werden</span></p><p class="text-align-left"><span style="display: initial;"><span class="ql-cursor">﻿</span></span></p></div> <div class="u_1157905119 graphicWidget" data-widget-type="graphic" id="1157905119" data-element-type="graphic"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1609646116" class="svg u_1609646116" data-icon-custom="true"> <g> <path d="m79.168 37.5h-58.336c-6.8906 0-12.5 5.6094-12.5 12.5v20.832c0 5.6406 3.7773 10.363 8.9219 11.914 1.5508 5.1406 6.2695 8.9219 11.914 8.9219 5.4258 0 10.004-3.4961 11.734-8.332h18.203c1.7266 4.8359 6.3086 8.332 11.73 8.332 5.6406 0 10.363-3.7773 11.914-8.9219 5.1367-1.5508 8.918-6.2695 8.918-11.914v-20.832c0-6.8906-5.6094-12.5-12.5-12.5zm4.1641 12.5v4.168h-12.5v-8.332h8.332c2.2969-0.003907 4.168 1.8633 4.168 4.1641zm-29.164 4.168v-8.332h8.332v8.332zm-16.668 0v-8.332h8.332v8.332zm-16.668-8.3359h8.332v8.332l-12.496 0.003907v-4.168c0-2.3008 1.8711-4.168 4.1641-4.168zm8.3359 37.5c-2.2969 0-4.168-1.8672-4.168-4.168 0-2.3008 1.8711-4.168 4.168-4.168s4.168 1.8672 4.168 4.168c-0.003907 2.3008-1.875 4.168-4.168 4.168zm41.664 0c-2.2969 0-4.168-1.8672-4.168-4.168 0-2.3008 1.8711-4.168 4.168-4.168s4.168 1.8672 4.168 4.168c0 2.3008-1.8711 4.168-4.168 4.168zm11.242-9.5273c-2.0117-4.207-6.2734-7.1367-11.242-7.1367-5.4258 0-10.004 3.4961-11.734 8.332h-18.199c-1.7266-4.8359-6.3086-8.332-11.73-8.332-4.9648 0-9.2266 2.9297-11.242 7.1367-0.77734-0.75781-1.2578-1.8086-1.2578-2.9727v-8.332h66.668v8.332c-0.003907 1.1641-0.48438 2.2148-1.2617 2.9727z"></path> 
+ <path d="m54.168 20.832h8.332c0 1.0664 0.41016 2.1328 1.2227 2.9453s1.8789 1.2227 2.9453 1.2227c1.0664 0 2.1328-0.41016 2.9453-1.2227l4.168-4.168c1.6289-1.6289 1.6289-4.2617 0-5.8906l-4.168-4.168c-1.6289-1.6289-4.2617-1.6289-5.8906 0-0.8125 0.81641-1.2227 1.8828-1.2227 2.9492h-8.332c-2.3008 0-4.168 1.8633-4.168 4.168 0 2.3047 1.8672 4.1641 4.168 4.1641z"></path> 
+ <path d="m30.387 32.113c0.8125 0.8125 1.8789 1.2188 2.9453 1.2188 1.0664 0 2.1328-0.41016 2.9453-1.2227 0.8125-0.80859 1.2227-1.875 1.2227-2.9414h8.332c2.3008 0 4.168-1.8633 4.168-4.168s-1.8672-4.168-4.168-4.168h-8.332c0-1.0664-0.41016-2.1328-1.2227-2.9453-1.6289-1.6289-4.2617-1.6289-5.8906 0l-4.168 4.168c-1.6289 1.6289-1.6289 4.2617 0 5.8906z"></path> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1387853498 dmNewParagraph" id="1387853498" data-element-type="paragraph" data-version="5"> <h4><span style="display: initial;">Shuttle-Service</span></h4> 
+</div> <div class="u_1352369099 dmNewParagraph" id="1352369099" style="transition: none; display: block; text-align: left;" data-version="5"><p class="text-align-left"><span style="display: initial;">Gerne &uuml;bernehmen wir den Shuttel- Service und fahren Sie von A nach B,</span></p><p class="text-align-left"><span style="display: initial;">ganz nach Ihrem Wunsch</span></p></div></div> 
+</div> 
+</div> 
+ <section class="u_1852386432 dmRespRow dmSectionParallex dmHomeSection3Parallex" id="1852386432"> <div class="dmRespColsWrapper" id="1465627644"> <div class="u_1700533169 dmRespCol large-12 medium-12 small-12 hide-for-large empty-column" id="1700533169"></div> 
+</div> 
+</section> 
+ <div class="dmRespRow u_1956767484" style="text-align: center;" id="1956767484"> <div class="dmRespColsWrapper" id="1237234522"> <div class="dmRespCol small-12 medium-6 large-6" id="1450138720"> <div class="u_1329568921 defaultH3 dmNewParagraph" id="1329568921" style="display: block; transition: none 0s ease 0s; text-align: start;" data-version="5"> <h3><span style="display: initial;">Gerne k&ouml;nnen Sie sich f&uuml;r Buchungen oder weitere Fragen jederzeit melden.</span></h3> 
+</div> <div class="u_1607691279 dmBlockElement dmDefaulDivContent dmNewParagraph" id="1607691279" style="display: block; transition: none 0s ease 0s; text-align: start;" data-version="5"><p><span style="display: initial;">&nbsp;</span></p><p><span class="" style="display: initial;"><span style="display: initial;">&nbsp;</span> 
+</span></p><p><span style="display: initial;">&nbsp; &nbsp;</span></p><p><span style="display: initial;">E-Mail: planwagenfahrten-schmetter@web.de<br/></span></p><p><span class="" style="display: initial;"><span style="display: initial;">&nbsp;<br/>&nbsp;</span> 
+</span></p><p><span style="display: initial;">Telefon: 0172 -8705473</span></p></div> 
+</div> 
+ <div class="dmRespCol small-12 medium-6 large-6" id="1700345502"> <a class="u_1127184097 dmPageLink dmWidget dmButtonLink dmHomeDefaultBtn" href="/contact" data-element-type="dPageLinkId" id="1127184097" file="false"> <span class="iconBg" id="1828093834"> <span class="icon hasFontIcon icon-external-link" id="1820991363"></span> 
+</span> 
+ <span class="text" id="1596230169">,,Bei Wind und Wetter Firma Schmetter&quot;</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmFooterContainer"> <div id="fcontainer" class="f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="14" class="dmFooterResp dmFullFooterResp" id="1371217037"> <div class="dmRespRow dmDividerRow" id="1181461090"> <div class="dmRespColsWrapper" id="1870758804"> <div class="large-12 medium-12 small-12 dmRespCol" id="1875039063"> <div class="dmDividerWrapper clearfix" data-element-type="dDividerId" id="1998265801"><hr class="dmDivider defaultDivider" id="1132691914"/></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow dmFooterContent u_1690480501" id="1690480501"> <div class="dmRespColsWrapper" id="1796820395"> <div class="dmRespCol large-12 medium-12 small-12 dmFooterCol" id="1665037184"> <div class="dmFooterDefaultH3 dmNewParagraph" id="1136230890" data-version="5"> <h4 class="text-align-center"><span style="color: rgb(255, 255, 255); font-style: italic; display: initial;">Auch hier k&ouml;nnen Sie uns gern f&uuml;r Neuigkeiten folgen!!!</span></h4> 
+</div> 
+ <div class="dmSocialHome u_1842726990 dmSocialHub gapSpacing" id="1842726990" dmle_extension="social_hub" data-element-type="social_hub" wr="false" icon="true" surround="false"> <div class="socialHubWrapper"> <div class="socialHubInnerDiv "> <a href="http://instagram.com/" target="_blank" dm_dont_rewrite_url="true" aria-label="instagram" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Instagram&apos;)"> <span class="dmSocialInstagram dm-social-icons-instagram oneIcon socialHubIcon style8" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://web.whatsapp.com/send?phone=01728705473" target="_blank" dm_dont_rewrite_url="true" aria-label="whatsapp" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Whatsapp&apos;)"> <span class="dmSocialWhatsapp dm-social-icons-whatsapp oneIcon socialHubIcon style8" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div id="1562547973" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+    </div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Include -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- loadCSS function fonts.jsp-->
+
+
+
+<link rel="preload" href="https://cdn.website-editor.net/fonts/css2?family=Muli:wght@200;300;400;600;700;800;900&family=Raleway:wght@100..900&family=Be+Vietnam:wght@100;200;300;400;600;700;800;900&family=Epilogue:wght@100..900&family=Oswald:wght@200..700&family=Yesteryear:wght@400&amp;subset=latin-ext&amp;display=swap"  as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+
+
+
+
+<!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
+<link rel="preload" as="style" fetchpriority="low" onload="loadCSS(this)" href="https://static-cdn.website-editor.net/mnlt/production/5493/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" />
+
+<!-- End of RT CSS Include -->
+
+<link rel="preload" href="https://cdn.website-editor.net/WIDGET_CSS/f0e6c647114935f0d144cc414afc9dad.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+<!-- Support `img` size attributes -->
+<style>img[width][height] {
+  height: auto;
+}</style>
+
+<!-- Support showing sticky element on page only -->
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+
+
+
+<!-- Site CSS -->
+<link rel="preload" href="https://cdn.website-editor.net/c2f6d3e144564f0b97111210a9cc10a9/files/c2f6d3e144564f0b97111210a9cc10a9_withFlex_1.min.css?v=42" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+
+
+<style id="customWidgetStyle" type="text/css">
+    
+</style>
+<style id="innerPagesStyle" type="text/css">
+    
+</style>
+
+
+<style
+        id="additionalGlobalCss" type="text/css"
+>
+</style>
+
+<!-- Page CSS -->
+<link rel="preload" href="https://cdn.website-editor.net/c2f6d3e144564f0b97111210a9cc10a9/files/c2f6d3e144564f0b97111210a9cc10a9_home_withFlex_1.min.css?v=42" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+<style id="pagestyle" type="text/css">
+    
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+    
+</style>
+
+<!-- Flex Sections CSS -->
+
+
+
+
+
+<style id="globalFontSizeStyle" type="text/css">
+    
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+<!-- ========= JS Section ========= -->
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "GERMAN"
+    window.isSitePreview = false;
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_5493";
+    var build = "2025-05-26T14_56_23";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2025-05-26T14_56_23";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+
+<!-- Load jQuery -->
+<script type="text/javascript" id='d-js-jquery'
+        src="https://static-cdn.website-editor.net/libs/jquery/jquery-3.7.0.min.js"></script>
+<!-- End Load jQuery -->
+<!-- Injecting site-wide before scripts -->
+<!-- End Injecting site-wide to the head -->
+
+
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+
+<!-- HEAD RT JS Include -->
+<script id='d-js-params'>
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.website-editor.net';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["feature.flag.mappy.kml"] =false;
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/5493';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static-cdn.website-editor.net';
+    rtCommonProps["common.resources.folder"] = 'https://static-cdn.website-editor.net/mnlt/production/5493';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+
+    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'mapbox';
+    rtCommonProps['common.map.defaults.radiusSize'] = '1500';
+    rtCommonProps['common.map.defaults.radiusBg'] = 'rgba(255, 255, 255, 0.4)';
+    rtCommonProps['common.map.defaults.strokeColor'] = 'rgba(255, 255, 255, 1)';
+    rtCommonProps['common.map.defaults.strokeSize'] = '2';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://le-cdn.website-editor.net/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =false;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["editor.classicHybrid.photogallery.fix"] =true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["contact.form.browserValidation.enabled"] =true;
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["runtime.cwv.report.cls.enabled"] =false;
+    rtFlags["editor.link.on.container"] =true;
+    rtFlags["flex.runtime.popup.with.show"] =true;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+    rtFlags["flex.megaMenu.a11y"] =false;
+</script>
+<script src="https://static-cdn.website-editor.net/mnlt/production/5493/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js"  id="d-js-core"></script>
+<!-- End of HEAD RT JS Include -->
+<script src="https://static-cdn.website-editor.net/mnlt/production/5493/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js" ></script>
+<script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+<script type="text/javascript" id="d_track_campaign">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+<script type="text/javascript" >
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+
+<script type="text/javascript" id="d_track_sp">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d1dxoqu0t5mb7j.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd1dxoqu0t5mb7j.cloudfront.net', { // Initialise a tracker
+  appId: 'c2f6d3e144564f0b97111210a9cc10a9'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script>
+   <div style="display:none;" id="P6iryBW0Wu"></div>
+
+<!-- photoswipe markup -->
+
+
+
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Schließen (ESC)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Teilen"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Vollbild ein-/ausschalten"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Vergrößern/verkleinern"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Zurück (Pfeil nach links)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Weiter (Pfeil nach rechts)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root"
+        data-locale="de_DE"></div>
+<!-- Alias: c2f6d3e144564f0b97111210a9cc10a9 -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+	<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+ 	<div class="dmPopupTitle"> <span></span> Share by:</div> 
+	<div class="data"></div>
+</div><script id="d_track_personalization">
+	window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'More';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'Less';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<!--  End Script tags -->
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+</body>
+</html>
