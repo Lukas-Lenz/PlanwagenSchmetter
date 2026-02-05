@@ -1,0 +1,11 @@
+:root {
+    --light-rose: rgb(255, 237, 211);
+    --light-bg: #FFFEF5;
+    --dark-grey: #121213;
+    --flower-red: #dd2d36;
+    --dark-granite: #2a2a2a;
+}
+
+.bg-base {
+    background-color: var(--light-bg);
+}

@@ -1,0 +1,69 @@
+/* small collection of image picked colors */
+:root{
+    --ipc-planwagen: #142118;
+    --var-planwagen-light: #E8E9E8;
+    --var-planwagen-black: #020302;
+    --ipc-planwagen-light: #d9e5e1;
+    --ipc-planwagen-yellow: #c3971f;
+    --ipc-planwagen-yellow-darker: #bc9012;
+    --ipc-sky: #c4cdd6;
+
+    --ipc-og-header: #173623;
+
+
+    /***   COLOR SETTINGS   ***/
+    --primary-text: var(--var-planwagen-light);
+    --page-bg: var(--ipc-planwagen);
+
+    --primary-accent: var(--ipc-og-header);
+    --primary-accent-text: var(--var-planwagen-light);
+
+    --secondary-accent: var(--ipc-planwagen-yellow);
+    --secondary-accent-text: var(--var-planwagen-dark);
+
+    --box-shadow-top: var(--ipc-og-header);
+    --box-shadow-bottom: var(--ipc-planwagen-yellow);
+    --box-bg: var(--ipc-planwagen-light);
+}
+
+.cc-background {
+    background-color: var(--page-bg);
+}
+
+.cc-text-light {
+    color:var(--primary-text);
+}
+
+.cc-primary-accent {
+    background-color: var(--primary-accent);
+    color: var()
+}
+
+.cc-text-dark {
+    color: var(--var-planwagen-black);
+}
+
+.cs-standout-text {
+    filter: drop-shadow(0px 5px 5px #000000);
+    font-weight: bold;
+}
+
+.cs-double-shadow {
+    box-shadow: -10px -10px 0px var(--box-shadow-top), 5px 5px 0px var(--box-shadow-bottom);
+}
+
+.cs-bgbox-light {
+    background-color: var(--var-planwagen-light);
+    padding: 2em;
+}
+
+.cs-background-circle {
+    border-radius: 50%;
+    width: 25%;
+}
+
+.cs-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
